@@ -1,0 +1,36 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.container {
+    text-align: center;
+}
+
+img {
+    width: 40%;
+    height: 20em;
+}
+
+.img_details {
+    width: 15%;
+    height: 10em;
+    border-radius: 30%;
+}
+
+h2 {
+    margin: 10px 0px 0px 40px;
+}
+
+.center{
+    text-align: center;
+}
+
+.row{
+    margin: 10px 0px 0px 40px;
+    padding: 10px;
+    background-color: lavender;
+    width: 100%;
+    min-height: 3em;
+}

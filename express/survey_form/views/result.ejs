@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Survey Form</title>
+</head>
+<body>
+    <div class="container">
+        <h1>
+            Submitted Information
+        </h1>
+        <div>
+            Name: <%= user_info.name %>
+        </div>
+        <div>
+            Dojo Location: <%= user_info.location %>
+        </div>
+        <div>
+            Favorite Language: <%= user_info.favorite_language %>
+        </div>
+        <div>
+            Comment: <%= user_info.comment %>
+        </div>
+        <div>
+            <button onclick="location.href='/'">
+                Go Back
+            </button>
+        </div>
+    </div>
+</body>
+</html>

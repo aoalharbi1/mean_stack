@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var socket = io();
+
+            $("#btn").click(function () {
+
+                socket.emit('posting_form', {
+                    msg: {
+                        "name": $("#name").val(),
+                        "location": $("#location").val(),
+                        "favorite_language": $("#favorite_language").val(),
+                        "comment": $("#comment").val()
+                    }
+                });
+            });
+
+            socket.on('updated_message', function (data) {
+                $(".message").show();
+
+                $(".message").append("<div> You emitted the following information to the server: "
+                    + JSON.stringify(data.msg) + "</div>");
+            });
+
+            socket.on('random_number', function (data) {
+
+                $(".message").append("<div> Your lucky number emitted by the server is: "
+                    + data.msg.number + "</div><br><hr>");
+            });
+        })
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="message"
+            style="display: none; padding: 10px; border: olive 1px solid; background-color: olivedrab; width: 50%;">
+
+        </div>
+        <form action="/result" method="post">
+            <div class="row">
+                <label for="name">Your Name:</label>
+                <input type="text" name="name" id="name">
+            </div>
+            <div class="row">
+                <label for="location">Dojo Location:</label>
+                <select id="location" name="location">
+                    <option value="chicago">Chicago</option>
+                    <option value="mountain_view">Mountain View</option>
+                </select>
+            </div>
+            <div class="row">
+                <label for="favorite_language">Favorite Language:</label>
+                <select id="favorite_language" name="favorite_language">
+                    <option value="javascript">Javascript</option>
+                    <option value="python">Python</option>
+                </select>
+            </div>
+            <div class="row">
+                <label for="comment">Comment(optional):</label>
+                <input type="textarea" name="comment" id="comment">
+            </div>
+            <div class="row">
+                <input type="button" id="btn" value="Submit">
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -46,12 +46,12 @@ input[type=button]{
     float: right;
 }
 
-.quotes h2 {
+.sub_container h2 {
     margin: 10px;
     color: gray;
 }
 
-.quotes h3 {
+.sub_container h3 {
     color: blue;
     text-align: center;
 }

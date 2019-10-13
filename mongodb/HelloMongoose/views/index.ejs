@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form</title>
+</head>
+
+<body>
+    <form action="/users" method="post">
+        <div class="row">
+            <label for="name">Name: </label>
+            <input type="text" id="name" name="name">
+        </div>
+        <div class="row">
+            <label for="age">Age: </label>
+            <input type="text" id="age" name="age">
+        </div>
+        <div class="row">
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+
+    <div>
+        <!-- tip to easily see objects printed in full instead of [object Object] -->
+        <%- JSON.stringify(messages) %>
+        <!-- based on the structure of your messages, determine how to display them -->
+        <% if(messages.registration) { %>
+            <% for (var x of messages.registration) { %>
+                <h3><%= x %></h3>
+            <% } %>
+        <% } %>
+    </div>
+</body>
+
+</html>

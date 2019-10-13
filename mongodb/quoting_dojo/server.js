@@ -19,12 +19,12 @@ app.use(session({
   }))
 
 mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true });
+
 const QuoteSchema = new mongoose.Schema({
     name: {type: String, required: true},
     quote: {type: String, required: true}
 }, {timestamps: { createdAt: true, updatedAt: false }});
 
-// create an object to that contains methods for mongoose to interface with MongoDB
 const Quote = mongoose.model('Quote', QuoteSchema);
 
 app.get('/', (req, res) => {
@@ -44,7 +44,7 @@ app.post('/quotes', (req, res) => {
         .then(() => res.redirect('/quotes'))
         .catch((err) => {
             console.log("We have an error!", err);
-            // adjust the code below as needed to create a flash message with the tag and content you would like
+            
             for (var key in err.errors) {
                 req.flash('registration', err.errors[key].path);
             }

@@ -1,0 +1,21 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.message {
+    margin: 20px 0px 0px 20px;
+}
+
+.comment {
+    margin: 10px 0px 10px 20px;
+}
+
+.row {
+    margin: 3px 0px 3px 20px;
+}
+
+.add_comment {
+    margin: 10px 0px 10px 40px;
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Welcome</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="welcome">Welcome to the zoo :)</h1>
+
+        <input class="add" type="button" value="Add new animal" onclick="window.location.href='/animal/new'">
+
+        <div class="animals_container">
+            <% if (animals < 1) { %>
+                <h2>No animals found</h2>
+            <% } %>
+            <% for (var animal of animals) { %>
+                <div class="animal">
+                    <h3>Animal's Name: <%= animal.name %></h3>
+                    <h3>Animal's Age: <%= animal.age %></h3>
+                    <h3>Animal's Color: <%= animal.color %></h3>
+                    <h3>Inserted At: <%= animal.createdAt %></h3>
+                    <input type="button" value="Edit" onclick="window.location.href='/animal/edit/<%=animal._id%>'">
+                    <input type="button" value="View" onclick="window.location.href='/animal/<%=animal._id%>'">
+                    <input type="button" value="Delete" onclick="window.location.href='/animal/destroy/<%=animal._id%>'">
+                </div>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

@@ -14,6 +14,10 @@
     flex-wrap: wrap;
 }
 
+.notification{
+    margin: 10px 0px 10px 0px;
+}
+
 .animal {
     border: 2px tan dashed;
     width: 52%;

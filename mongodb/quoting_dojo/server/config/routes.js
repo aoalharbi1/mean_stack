@@ -1,29 +1,17 @@
-const mongoose = require('mongoose')
-const Quote = mongoose.model('Quote')
+const mongoose = require('mongoose');
+const Quote = mongoose.model('Quote');
+const quotes = require('../controllers/quotes.js');
 
 module.exports = function (app) {
     app.get('/', (req, res) => {
-        res.render("index")
+        quotes.index(req, res);
     });
 
     app.get('/quotes', (req, res) => {
-        Quote.find().sort({ _id: -1 })
-            .then(data => res.render("quotes", { quotes: data }))
-            .catch(err => res.json(err));
+        quotes.find(req, res)
     });
 
     app.post('/quotes', (req, res) => {
-
-        const quote = new Quote(req.body);
-        quote.save()
-            .then(() => res.redirect('/quotes'))
-            .catch((err) => {
-                console.log("We have an error!", err);
-
-                for (var key in err.errors) {
-                    req.flash('registration', err.errors[key].path);
-                }
-                res.redirect('/');
-            });
+        quotes.create(req, res);
     });
 }

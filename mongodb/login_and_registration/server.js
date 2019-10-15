@@ -20,7 +20,7 @@ app.use(session({
     cookie: { maxAge: 60000 }
 }));
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     res.locals.user = req.session.user;
     next();
 });
@@ -62,7 +62,7 @@ app.post("/register", (req, res) => {
         .then(hashed_password => {
             let newUser = user;
             newUser.password = hashed_password;
-            
+
             return User.create(newUser);
         })
         .then(savedResult => res.redirect("/"))
@@ -75,25 +75,28 @@ app.get("/login", (req, res) => {
 
 app.post("/login", (req, res) => {
     User.findOne({ email: req.body.email })
-        .then(user => {
-            bcrypt.compare(req.body.password, user.password)
-            .then(result => {
-                if(result){
+        .then(async user => {
+            try {
+                if (await bcrypt.compare(req.body.password, user.password)) {
                     user.password = null;
                     req.session.user = user;
 
                     res.redirect("/user_in");
                 }
+
                 else {
                     res.redirect("/login")
                 }
-            })
+            }
+            catch(err){
+                return Promise.reject(err)
+            }
         })
         .catch(err => res.json(err));
 });
 
 app.get("/user_in", (req, res) => {
-    if(req.session.user.email)
+    if (req.session.user.email)
         res.render("user_dashboard");
     else
         res.redirect("/");

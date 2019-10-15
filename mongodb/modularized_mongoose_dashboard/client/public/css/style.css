@@ -1,0 +1,85 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.container{
+    text-align: center;
+}
+
+.animals_container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.notification{
+    margin: 10px 0px 10px 0px;
+}
+
+.animal {
+    border: 2px tan dashed;
+    width: 52%;
+    padding: 15px 20px 15px 50px;
+    margin: 20px 0px 0px 0px;
+}
+
+.animal h3 {
+    margin: 0px 0px 10px 0px;
+}
+
+.welcome{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.add {
+    width: 8%;
+    height: 2em;
+    margin: 10px 0px 0px 0px;
+    outline: none;
+    border: none;
+    background-color: tan;
+    box-shadow: 2px 2px 2px 2px gray;
+}
+
+.animal_id {
+    margin: 20px 0px 10px 0px;
+}
+
+.col_25{
+    width: 25%;
+    margin-top: 6px;
+    float: left;
+}
+
+.col_75{
+    width: 75%;
+    margin-top: 6px;
+    float: right;
+}
+
+label, input[type=text]{
+    width: 100%;
+}
+
+.edit_container{ 
+    padding: 10px 20px 0px 20px;
+}
+
+.center {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+input[type=submit]{
+    width: 8%;
+    height: 2em;
+    margin-top: 20px;
+    outline: none;
+    border: none;
+    background-color: tan;
+    box-shadow: 2px 2px 2px 2px gray;
+}

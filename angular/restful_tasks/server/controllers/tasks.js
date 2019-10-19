@@ -9,9 +9,8 @@ module.exports = {
     },
 
     getById: (req, res) => {
-        console.log(req.params);
         
-        Task.findOne({_id: req.body._id})
+        Task.findOne({_id: req.query._id})
             .then(task => res.json(task))
             .catch(err => res.json(err));
     },

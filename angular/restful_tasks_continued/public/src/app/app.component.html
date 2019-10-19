@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Welcome</title>
+</head>
+<body>
+  <h1>Restful Tasks API</h1>
+  <h1>All the tasks: </h1>
+  <ul *ngIf="tasks.length > 0">
+    <li *ngFor="let task of tasks">{{task.title}} - {{task.description}}</li>
+  </ul>
+  <h1>The third task:</h1>
+  <ul *ngIf="tasks.length >= 3">
+    <li>{{tasks[2].title}} - {{tasks[2].description}}</li>
+  </ul>
+  <h1>Task By ID(5dab75e5aff831b116cbe229):</h1>
+  <ul *ngIf="taskById">
+    <li>{{taskById.title}} - {{taskById.description}}</li>
+  </ul>
+</body>
+</html>

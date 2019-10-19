@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Welcome</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="main_message">Restful Tasks API</h1>
+    <div class="tasks">
+      <button class="tasks_btn" (click)="getTasksFromService()">Get All Tasks</button>
+      <div class="text_holder">
+        <h3>Write a task ID, then press enter:</h3>
+        <input type="text" (keyup)="getTaskByIdFromService(taskID, $event)" value="5dab75e5aff831b116cbe229" #taskID>
+      </div>
+      <ul *ngIf="tasks.length > 0">
+        <li *ngFor="let task of tasks">
+          {{task.title}} - {{task.description}}
+          <button class="show_task" (click)="showTask(task)">Show</button>
+        </li>
+      </ul>
+    </div>
+    <div class="task" *ngIf="taskToShow">
+      <h3>{{taskToShow.title}}</h3>
+      <h4>{{taskToShow.description}}</h4>
+    </div>
+    <div class="task_by_id" *ngIf="taskById">
+      <h1>Task ID ({{taskById.title === undefined ? 'No task found with the given ID' : taskById._id}}):</h1>
+      <p *ngIf="taskById.title">{{taskById.title}} - {{taskById.description}}</p>
+    </div>
+  </div>
+</body>
+
+</html>

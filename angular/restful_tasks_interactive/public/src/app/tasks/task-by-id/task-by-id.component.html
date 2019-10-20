@@ -1,0 +1,9 @@
+<div class="text_holder">
+  <h3>Write a task ID, then press enter:</h3>
+</div>
+<input type="text" (keyup)="getTaskByIdFromService(taskID, $event)" value="5dab75e5aff831b116cbe229" #taskID>
+
+<div *ngIf="taskById">
+  <h1>Task ID ({{taskById.title === undefined ? 'No task found with the given ID' : taskById._id}}):</h1>
+  <p *ngIf="taskById.title">{{taskById.title}} - {{taskById.description}}</p>
+</div>

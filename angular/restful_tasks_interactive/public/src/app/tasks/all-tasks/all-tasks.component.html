@@ -1,0 +1,11 @@
+<button class="tasks_btn" (click)="getTasksFromService()">Get All Tasks</button>
+<ul *ngIf="tasks.length > 0">
+  <li *ngFor="let task of tasks">
+    <span>{{task.title}} - {{task.description}}</span>
+    <button class="show_task" (click)="showTask(task)">Show</button>
+  </li>
+</ul>
+<div class="task" *ngIf="taskToShow">
+  <h3>{{taskToShow.title}}</h3>
+  <h4>{{taskToShow.description}}</h4>
+</div>

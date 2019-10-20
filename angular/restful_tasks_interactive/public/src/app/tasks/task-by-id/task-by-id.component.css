@@ -1,0 +1,9 @@
+.text_holder{
+  width: 100%;
+  margin: 10px;
+}
+
+input[type=text]{
+  width: 30%;
+  text-align: center;
+}

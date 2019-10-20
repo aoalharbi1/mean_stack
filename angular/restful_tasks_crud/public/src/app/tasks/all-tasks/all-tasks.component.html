@@ -1,0 +1,21 @@
+<h1>Task List:</h1>
+<ul *ngIf="tasks.length > 0">
+  <li *ngFor="let task of tasks">
+    <span>{{task.title}} - {{task.description}}</span>
+    <div class="btn_holder">
+      <button class="perform_operation" (click)="delete(task)">Delete</button>
+      <button class="perform_operation" (click)="showTaskToEdit(task)">Edit</button>
+    </div>
+  </li>
+</ul>
+<div class="task" *ngIf="selectedTask.title">
+  <div>
+    <label for="title">Title:</label>
+    <input type="text" name="title" id="title" [(ngModel)]="selectedTask.title">
+  </div>
+  <div>
+    <label for="description">Description:</label>
+    <input type="text" name="description" id="description" [(ngModel)]="selectedTask.description">
+  </div>
+  <button class="perform_operation" (click)="edit(selectedTask)">Edit</button>
+</div>

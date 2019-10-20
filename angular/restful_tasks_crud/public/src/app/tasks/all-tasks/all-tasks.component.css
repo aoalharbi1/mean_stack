@@ -1,0 +1,47 @@
+.tasks_btn {
+  width: 20%;
+  height: 2.5em;
+  margin: 10px;
+  background-color: blueviolet;
+  color: white;
+  border: none;
+  font-size: 18px;
+}
+
+.task {
+  border: 3px green solid;
+  border-radius: 5px;
+  text-align: center;
+  width: 94%;
+  margin: 10px auto;
+}
+
+.perform_operation {
+  height: 2.5em;
+  margin: 10px;
+  border-radius: 50%;
+  background-color: rgb(42, 124, 39);
+  color: white;
+  font-size: 18px;
+  border: none;
+}
+
+span {
+  padding-top: 2.5%;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.btn_holder {
+  justify-self: right;
+}
+
+input[type=text]{
+  width: 30%;
+  text-align: center;
+  margin: 12px;
+}
